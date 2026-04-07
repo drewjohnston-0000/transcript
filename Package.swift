@@ -16,5 +16,10 @@ let package = Package(
             ],
             path: "Sources"
         ),
+        .testTarget(
+            name: "TranscriptTests",
+            dependencies: ["transcript"],
+            path: "Tests"
+        ),
     ]
 )
