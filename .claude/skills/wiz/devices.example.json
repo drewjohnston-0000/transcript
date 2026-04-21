@@ -1,0 +1,20 @@
+{
+  "presets": {
+    "warm":    {"state": true, "temp": 2700, "dimming": 80},
+    "bright":  {"state": true, "temp": 4000, "dimming": 100},
+    "cool":    {"state": true, "temp": 5000, "dimming": 100},
+    "cozy":    {"state": true, "sceneId": 6, "dimming": 50},
+    "evening": "warm",
+    "off":     {"state": false}
+  },
+  "devices": [
+    {
+      "mac":     "444f8e292f4c",
+      "ip":      "192.168.1.13",
+      "name":    "desk",
+      "room":    "office",
+      "default": "warm",
+      "notes":   ""
+    }
+  ]
+}
