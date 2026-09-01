@@ -43,10 +43,15 @@ struct Transcript: AsyncParsableCommand {
             var body = Formatter.format(events, metadata: metadata, track: track, as: format)
 
             if clean && format == .text {
-                FileHandle.standardError.write(Data("Formatting with AI...\n".utf8))
+                Logger.info("Formatting with AI...")
                 let rawText = Formatter.rawText(from: events)
                 let cleaned = try await AIFormatter.format(rawText, metadata: metadata)
+                if !cleaned.contains("## ") {
+                    Logger.failure("AI response contains no '##' section headings — section formatting did not apply.")
+                }
                 body = Formatter.header(metadata: metadata, track: track) + cleaned
+            } else if clean && format != .text {
+                Logger.warning("--clean is ignored for format '\(format.rawValue)'; only 'text' is reformatted.")
             }
 
             let output = body
