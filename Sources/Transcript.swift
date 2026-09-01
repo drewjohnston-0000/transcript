@@ -6,7 +6,7 @@ struct Transcript: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "transcript",
         abstract: "Download YouTube video transcripts.",
-        version: "1.1.0"
+        version: "1.2.0"
     )
 
     @Argument(help: "YouTube video URL or video ID.")
